@@ -16,8 +16,8 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Content-Type": "application/json"
     }
 
-    data = {
-        "model": "deepseek-chat",
+data = {
+        "model": "deepseek-reasoner",  # 👈 默认开启深度思考
         "messages": [
             {"role": "user", "content": user_text}
         ]
@@ -34,3 +34,4 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
 
 print("Bot is running...")
 app.run_polling()
+
